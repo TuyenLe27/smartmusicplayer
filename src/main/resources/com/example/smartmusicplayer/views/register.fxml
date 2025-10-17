@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.smartmusicplayer.controllers.RegisterController"
+      spacing="10" alignment="CENTER" maxWidth="600" fx:id="registerVBox">
+    <padding>
+        <Insets top="30" right="30" bottom="30" left="30"/>
+    </padding>
+    <Label text="Register" style="-fx-font-size:20px; -fx-font-weight:bold;"/>
+    <TextField fx:id="usernameField" promptText="Username" maxWidth="350"/>
+    <PasswordField fx:id="passwordField" promptText="Password" maxWidth="350"/>
+    <TextField fx:id="fullnameField" promptText="Full Name" maxWidth="350"/>
+    <Button fx:id="registerButton" text="Register" onAction="#onRegisterClick" maxWidth="200"/>
+    <Button fx:id="backButton" text="Back to Login" onAction="#onBackClick" maxWidth="200"/>
+</VBox>

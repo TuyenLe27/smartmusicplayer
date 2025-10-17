@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.smartmusicplayer.controllers.AdminController"
+            fitToWidth="true" fitToHeight="true">
+    <HBox alignment="CENTER">
+        <VBox fx:id="adminVBox" spacing="10" alignment="CENTER">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            <!-- Nút Quản lý người dùng, Quản lý Feedback và Đăng Xuất ở góc phải trên -->
+            <HBox alignment="TOP_RIGHT" spacing="10">
+                <padding>
+                    <Insets top="10" right="20" bottom="10" left="20"/>
+                </padding>
+                <Button fx:id="manageUsersButton" text="Quản lý người dùng" onAction="#onManageUsersClick" style="-fx-font-size:14px;"/>
+                <Button fx:id="manageFeedbackButton" text="Quản lý Feedback" onAction="#onManageFeedbackClick" style="-fx-font-size:14px;"/>
+                <Button fx:id="logoutButton" text="Đăng Xuất" onAction="#onLogoutClick" style="-fx-font-size:14px;"/>
+            </HBox>
+
+            <!-- Form Upload -->
+            <Label text="Tải Lên Bài Hát Mới" style="-fx-font-size:18px; -fx-font-weight:bold;"/>
+            <TextField fx:id="songTitleField" promptText="Tên Bài Hát"/>
+            <TextField fx:id="artistField" promptText="Nghệ Sĩ"/>
+            <TextField fx:id="albumField" promptText="Album"/>
+            <ComboBox fx:id="genreComboBox" promptText="Chọn Thể Loại"/>
+            <HBox spacing="10" alignment="CENTER">
+                <TextField fx:id="songFileField" promptText="Chọn File MP3" editable="false"/>
+                <Button fx:id="browseSongButton" text="Chọn" onAction="#onBrowseSongClick" minWidth="60"/>
+            </HBox>
+            <HBox spacing="10" alignment="CENTER">
+                <TextField fx:id="coverFileField" promptText="Chọn Ảnh Bìa" editable="false"/>
+                <Button fx:id="browseCoverButton" text="Chọn" onAction="#onBrowseCoverClick" minWidth="60"/>
+            </HBox>
+            <Button text="Tải Lên" onAction="#onUploadSongClick" style="-fx-font-size:14px;"/>
+
+            <!-- Danh sách bài hát -->
+            <Label text="Quản Lý Bài Hát" style="-fx-font-size:18px; -fx-font-weight:bold;" VBox.vgrow="NEVER"/>
+            <ListView fx:id="songList" VBox.vgrow="ALWAYS"/>
+            <HBox spacing="10" alignment="CENTER">
+                <Button fx:id="editButton" text="Chỉnh Sửa" onAction="#onEditSongClick" style="-fx-font-size:14px;"/>
+                <Button fx:id="deleteButton" text="Xóa" onAction="#onDeleteSongClick" style="-fx-font-size:14px;"/>
+            </HBox>
+
+            <!-- Form chỉnh sửa -->
+            <VBox fx:id="editForm" visible="false" managed="false" spacing="10">
+                <Label text="Chỉnh Sửa Bài Hát" style="-fx-font-size:16px; -fx-font-weight:bold;"/>
+                <TextField fx:id="editSongTitleField" promptText="Tên Bài Hát"/>
+                <TextField fx:id="editArtistField" promptText="Nghệ Sĩ"/>
+                <TextField fx:id="editAlbumField" promptText="Album"/>
+                <ComboBox fx:id="editGenreComboBox" promptText="Chọn Thể Loại"/>
+                <HBox spacing="10" alignment="CENTER">
+                    <TextField fx:id="editSongFileField" promptText="Chọn File MP3" editable="false"/>
+                    <Button fx:id="editBrowseSongButton" text="Chọn" onAction="#onBrowseEditSongClick" minWidth="60"/>
+                </HBox>
+                <HBox spacing="10" alignment="CENTER">
+                    <TextField fx:id="editCoverFileField" promptText="Chọn Ảnh Bìa" editable="false"/>
+                    <Button fx:id="editBrowseCoverButton" text="Chọn" onAction="#onBrowseEditCoverClick" minWidth="60"/>
+                </HBox>
+                <HBox spacing="10" alignment="CENTER">
+                    <Button text="Lưu Thay Đổi" onAction="#onSaveEditClick" style="-fx-font-size:14px;"/>
+                    <Button text="Hủy" onAction="#onCancelEditClick" style="-fx-font-size:14px;"/>
+                </HBox>
+            </VBox>
+
+            <!-- Nút Quay Lại -->
+            <HBox alignment="CENTER" spacing="10">
+                <padding>
+                    <Insets top="10" right="20" bottom="20" left="20"/>
+                </padding>
+                <Button fx:id="backButton" text="Quay Lại" onAction="#onBackClick" style="-fx-font-size:14px;" VBox.vgrow="NEVER"/>
+            </HBox>
+        </VBox>
+    </HBox>
+</ScrollPane>

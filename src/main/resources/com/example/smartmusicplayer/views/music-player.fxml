@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.smartmusicplayer.controllers.MusicPlayerController">
+
+    <left>
+        <ScrollPane fitToWidth="true" fitToHeight="true">
+            <VBox spacing="10" alignment="TOP_CENTER">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+                <Label text="Danh sách bài hát" style="-fx-font-size:16px; -fx-font-weight:bold;"/>
+                <TextField fx:id="searchField" promptText="Tìm kiếm bài hát"/>
+                <ComboBox fx:id="genreComboBox" promptText="Chọn thể loại"/>
+                <Button fx:id="searchButton" text="Tìm kiếm" onAction="#onSearchClick"/>
+                <Button fx:id="clearSearchButton" text="Xóa bộ lọc" onAction="#onClearSearchClick"/>
+                <ComboBox fx:id="playlistComboBox" promptText="Chọn playlist"/>
+                <Button fx:id="createPlaylistButton" text="Tạo playlist" onAction="#onCreatePlaylistClick"/>
+                <Button fx:id="addSongToPlaylistButton" text="Thêm vào playlist" onAction="#onAddSongToPlaylistClick"/>
+                <Button fx:id="removeSongFromPlaylistButton" text="Xóa khỏi playlist" onAction="#onRemoveSongFromPlaylistClick"/>
+                <ListView fx:id="songList" VBox.vgrow="ALWAYS"/>
+                <Label text="Đánh giá" style="-fx-font-size:16px; -fx-font-weight:bold;"/>
+                <ListView fx:id="feedbackList" VBox.vgrow="ALWAYS"/>
+                <Button fx:id="addFeedbackButton" text="Thêm đánh giá" onAction="#onAddFeedbackClick"/>
+            </VBox>
+        </ScrollPane>
+    </left>
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true">
+            <VBox fx:id="centerVBox" spacing="10" alignment="CENTER">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+                <ImageView fx:id="coverImage" preserveRatio="true"/>
+                <Label fx:id="songTitle" style="-fx-font-size:18px; -fx-font-weight:bold;"/>
+                <Label fx:id="songArtist" style="-fx-font-size:14px;"/>
+                <HBox fx:id="controlBox" spacing="5" alignment="CENTER">
+                    <Button fx:id="prevButton" text="Trước" onAction="#onPrevClick"/>
+                    <Button fx:id="playButton" text="Phát" onAction="#onPlayClick"/>
+                    <Button fx:id="pauseButton" text="Tạm dừng" onAction="#onPauseClick"/>
+                    <Button fx:id="nextButton" text="Tiếp" onAction="#onNextClick"/>
+                    <Button fx:id="shuffleButton" text="Shuffle" onAction="#onShuffleClick"/>
+                    <Button fx:id="repeatButton" text="Repeat" onAction="#onRepeatClick"/>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+    <bottom>
+        <VBox alignment="CENTER">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Label fx:id="songDurationLabel" style="-fx-font-size:14px;"/>
+            <Slider fx:id="progressBar"/>
+        </VBox>
+    </bottom>
+</BorderPane>
